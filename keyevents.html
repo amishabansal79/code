@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="h">
+    <p id="g">Press any key on your keyboard:</p>
+    <div id="eventInfo"></div>
+    <script>
+        function displayEventInformation(event){
+            const eventInforDiv=document.getElementById("eventInfo");
+            eventInforDiv.innerHTML=`
+            <p>Event Type: ${event.type}</p>
+            <p>Key code: ${event.keyCode}</p>
+            <p>Key: ${event.key}</p>
+            `;
+            if(event.key=='y'){
+              document.getElementById("g").style.backgroundColor="pink";
+            }
+            if(event.key=='b'){
+              document.getElementById("h").style.backgroundColor="skyblue";
+            }
+        }
+        //add event listener for keydown 
+        // document.addEventListener('keydown',function(event){
+        //     displayEventInformation(event);
+        // })
+        document.addEventListener('keyup',function(event){
+            displayEventInformation(event);
+        })
+    </script>
+</body>
+</html>

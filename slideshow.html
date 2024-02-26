@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        #slider-container {
+            position: relative;
+            max-width: 700px; 
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slider-image {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 1;
+        }
+
+        .control-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="slider-container">
+        <img class="slider-image" src="https://i.pinimg.com/736x/3f/6c/89/3f6c89b7e2123f425cd28f0d3bfb6703.jpg" alt="Image 1">
+        <img class="slider-image" src="https://i.pinimg.com/564x/b6/8c/69/b68c6976eadfb04b484402b4f148d33b.jpg" alt="Image 1">
+        <img class="slider-image" src="https://i.pinimg.com/564x/ea/55/cf/ea55cfc23f34586cf1b36478ed33776c.jpg" alt="Image 1">
+        <img class="slider-image" src="https://i.pinimg.com/564x/d2/4e/c5/d24ec5ec5158ffc7105bcdda66830919.jpg" alt="Image 1">
+        <img class="slider-image" src="https://i.pinimg.com/564x/a7/ec/04/a7ec049b843c4281d11e571222884499.jpg" alt="Image 1">
+        
+        
+        <div class="slider-controls">
+            <button class="control-button" onclick="prevSlide()">Prev</button>
+            <button class="control-button" onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slider-image');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[index].style.display = 'block';
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        function autoSlide() {
+            nextSlide();
+        }
+
+        setInterval(autoSlide, 6000);
+    </script>
+</body>
+</html>

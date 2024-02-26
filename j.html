@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: plum;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">Mouse coordinates:</div>
+    <script>
+        const coor=document.getElementById("box");
+        const body=document.body;
+        function handle(){
+            const x=event.clientX;
+            const y=event.clientY;
+            coor.textContent='Mouse coordinates: '+x+" "+y;
+    
+        }
+        function getRandomColor() {
+            let val1 = Math.ceil(0 + Math.random() * 255);
+            let val2 = Math.ceil(0 + Math.random() * 255);
+            let val3 = Math.ceil(0 + Math.random() * 255);
+            // return rgb(${val1}, ${val2}, ${val3})
+            body.style.backgroundColor=rgb(${val1}, ${val2}, ${val3});
+        }
+
+
+        coor.addEventListener("mousemove",handle);
+        body.addEventListener("mousemove",getRandomColor);
+    </script>
+</body>
+</html>

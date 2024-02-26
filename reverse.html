@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reverse String</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background-color: #f4f4f4;
+}
+.container {
+text-align: center;
+}
+input[type="text"] {
+padding: 10px;
+margin-bottom: 10px;
+width: 300px;
+font-size: 16px;
+}
+button {
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+}
+button:hover {
+background-color: #45a049;
+}
+#output {
+font-size: 18px;
+margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<input type="text" id="inputString" placeholder="Enter a string">
+<button onclick="reverseString()">Reverse</button>
+<div id="output"></div>
+</div>
+
+<script>
+function reverseString() {
+var input = document.getElementById("inputString").value;
+var reversed = reverseStringRecursive(input);
+document.getElementById("output").innerText = "Reversed String: " + reversed;
+}
+
+function reverseStringRecursive(str) {
+// Base case: if the string is empty or has only one character, return the string itself
+if (str === "" || str.length === 1) {
+return str;
+}
+// Recursive case: concatenate the last character of the string with the reversed substring
+return str.slice(-1) + reverseStringRecursive(str.slice(0, -1));
+}
+</script>
+
+</body>
+</html>

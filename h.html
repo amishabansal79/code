@@ -1,0 +1,35 @@
+<!--  setTimeOut(function,delay,param1,param2,.....) -->
+<!--  setInterval(function,delay,param1,param2,.....) -->
+<!-- cleatTimeout(functionName) -->
+<!-- clearInterval(functionName) -->
+<!-- innerHTML is used to access the content inside a para or div or anything -->
+<!--  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+    <p id="demo"></p>
+
+
+    <script>
+        var i;
+        function start(){
+            i = setInterval(datetime,5000);
+        }
+        function datetime(){
+            document.getElementById("demo").innerHTML = new Date();
+        }
+        document.getElementById("demo").style.cssText = "font-size: 70px";
+        function stop(){
+            clearInterval(i);
+        }
+    </script>
+</body>
+</html>
